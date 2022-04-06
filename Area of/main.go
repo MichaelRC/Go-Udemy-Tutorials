@@ -32,7 +32,7 @@ func main() {
 }
 
 /*
-	OTHER FUNCTIONS
+	STRUCT FUNCTIONS
 */
 func (t triangle) getArea() float64 {
 	a := 0.5 * t.base * t.height
@@ -43,6 +43,10 @@ func (s sqaure) getArea() float64 {
 	a := s.sideLength * s.sideLength
 	return a
 }
+
+/*
+	INTERFACE FUNCTIONS
+*/
 
 func printArea(s shape) {
 	fmt.Println(s.getArea())
