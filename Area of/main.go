@@ -4,12 +4,12 @@ type shape interface {
 	getArea() float64
 }
 
-type sqaure struct{
-	sideLength int
+type sqaure struct {
+	sideLength float64
 }
-type triangle struct{
-	height int
-	base int
+type triangle struct {
+	height float64
+	base   float64
 }
 
 func main() {
@@ -17,11 +17,11 @@ func main() {
 }
 
 func (t triangle) getArea() float64 {
-	a := 0.5 * int float(t.base) * int float(t.height)
-	return float64(a) 
+	a := 0.5 * t.base * t.height
+	return a
 }
 
 func (s sqaure) getArea() float64 {
 	a := s.sideLength * s.sideLength
-	return float64(a)
+	return a
 }
