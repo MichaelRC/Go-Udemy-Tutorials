@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 /*
 	INTERFACE DECLERATIONS
 */
@@ -22,7 +24,11 @@ type triangle struct {
 	MAIN
 */
 func main() {
+	tri := triangle{5, 6}
+	squ := sqaure{8}
 
+	printArea(tri)
+	printArea(squ)
 }
 
 /*
@@ -36,4 +42,8 @@ func (t triangle) getArea() float64 {
 func (s sqaure) getArea() float64 {
 	a := s.sideLength * s.sideLength
 	return a
+}
+
+func printArea(s shape) {
+	fmt.Println(s.getArea())
 }
