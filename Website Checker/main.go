@@ -1,5 +1,10 @@
 package main
 
+import (
+	"fmt"
+	"net/http"
+)
+
 func main() {
 	links := []string{
 		//make sure to include web protocol!
@@ -13,7 +18,22 @@ func main() {
 	}
 
 	for _, link := range links {
-
+		checkLink(link)
 	}
 
+}
+
+//checks if a link is receiving traffic
+func checkLink(link string) {
+	//we only care about the error returned
+	//so the returned struct is left blank.
+	_, err := http.Get(link)
+
+	//if something went wrong
+	if err != nil {
+		fmt.Println(link, "might be donw!")
+		return
+	}
+	//if everything is working.
+	fmt.Println(link, "is up!")
 }
