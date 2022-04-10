@@ -2,14 +2,15 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"os"
 )
 
 func main() {
-	//prints out what is put into command line
-	//creates a temporary file to pull the data from
-	fmt.Println(os.Args)
-
-	//will name the file what is placed in the 1st element
-	os.Args[1]
+	fn, err := ioutil.ReadFile(os.Args[1])
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
+	fmt.Println(string(fn))
 }
