@@ -31,7 +31,7 @@ func checkLink(link string) {
 
 	//if something went wrong
 	if err != nil {
-		fmt.Println(link, "might be donw!")
+		fmt.Println(link, "might be down!")
 		return
 	}
 	//if everything is working.
