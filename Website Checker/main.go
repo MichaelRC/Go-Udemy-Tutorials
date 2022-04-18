@@ -20,13 +20,13 @@ func main() {
 	c := make(chan string)
 
 	for _, link := range links {
-		go checkLink(link)
+		go checkLink(link, c)
 	}
 
 }
 
 //checks if a link is receiving traffic
-func checkLink(link string) {
+func checkLink(link string, c chan string) {
 	//we only care about the error returned
 	//so the returned struct is left blank.
 	_, err := http.Get(link)
