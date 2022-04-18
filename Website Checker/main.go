@@ -17,6 +17,8 @@ func main() {
 		"http://amazon.com",
 	}
 
+	c := make(chan string)
+
 	for _, link := range links {
 		go checkLink(link)
 	}
