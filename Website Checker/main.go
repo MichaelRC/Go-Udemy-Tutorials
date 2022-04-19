@@ -23,10 +23,9 @@ func main() {
 		go checkLink(link, c)
 	}
 
-	//Iterate through each element in links
-	//and print out what is sent through the channel.
-	for i := 0; i < len(links); i++ {
-		fmt.Println(<-c)
+	//infinite loop
+	for {
+		go checkLink(<-c, c)
 	}
 }
 
@@ -39,12 +38,12 @@ func checkLink(link string, c chan string) {
 	//if something went wrong
 	if err != nil {
 		fmt.Println(link, "might be down!")
-		//this this string into the channel.
-		c <- "Might be down I think."
+		//send link adress in to channel
+		c <- link
 		return
 	}
 	//if everything is working.
 	fmt.Println(link, "is up!")
-	//send this string into the channel.
-	c <- "Yep it's up."
+	//send link adress in to channel
+	c <- link
 }
