@@ -23,9 +23,9 @@ func main() {
 		go checkLink(link, c)
 	}
 
-	//infinite loop
-	for {
-		go checkLink(<-c, c)
+	//l is short for link
+	for l := range c {
+		go checkLink(l, c)
 	}
 }
 
