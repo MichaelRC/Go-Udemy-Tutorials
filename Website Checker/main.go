@@ -23,9 +23,11 @@ func main() {
 		go checkLink(link, c)
 	}
 
-	//Print whatever was placed in the channel.
-	fmt.Println(<-c)
-
+	//Iterate through each element in links
+	//and print out what is sent through the channel.
+	for i := 0; i < len(links); i++ {
+		fmt.Println(<-c)
+	}
 }
 
 //checks if a link is receiving traffic
