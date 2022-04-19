@@ -23,6 +23,8 @@ func main() {
 		go checkLink(link, c)
 	}
 
+	fmt.Println(<-c)
+
 }
 
 //checks if a link is receiving traffic
@@ -34,8 +36,10 @@ func checkLink(link string, c chan string) {
 	//if something went wrong
 	if err != nil {
 		fmt.Println(link, "might be down!")
+		c <- "Might be down I think."
 		return
 	}
 	//if everything is working.
 	fmt.Println(link, "is up!")
+	c <- "Yep it's up."
 }
