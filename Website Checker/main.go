@@ -23,6 +23,7 @@ func main() {
 		go checkLink(link, c)
 	}
 
+	//Print whatever was placed in the channel.
 	fmt.Println(<-c)
 
 }
@@ -36,10 +37,12 @@ func checkLink(link string, c chan string) {
 	//if something went wrong
 	if err != nil {
 		fmt.Println(link, "might be down!")
+		//this this string into the channel.
 		c <- "Might be down I think."
 		return
 	}
 	//if everything is working.
 	fmt.Println(link, "is up!")
+	//send this string into the channel.
 	c <- "Yep it's up."
 }
